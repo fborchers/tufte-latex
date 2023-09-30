@@ -1666,6 +1666,7 @@
 %    related threads on Ask E.T. at http://www.edwardtufte.com/.}
 %}% commented out, flbo
 
+
 \renewcommand\subparagraph{%
   \@tufte@error{\string\subparagraph is undefined by this class.%
     See Robert Bringhurst's _The Elements of 
