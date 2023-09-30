@@ -1516,6 +1516,7 @@
   \typeout{Class: \@tufte@pkgname}
   \typeout{}
   \typeout{Class options:}
+  \typeout{fontsize: \tufte@class@fontsize}
   \typeoutbool{a4paper}{@tufte@afourpaper}
   \typeoutbool{b5paper}{@tufte@bfivepaper}
   \typeoutbool{load fonts}{@tufte@loadfonts}
