@@ -384,9 +384,16 @@ for the headings and body text, while Gill Sans is used for the title page and
 opening epigraphs in \BE.
 
 Since neither Bembo nor Gill Sans are available in default \LaTeX{}
-installations, the \TL document classes default to using Palatino and
-Helvetica, respectively.  In addition, the Bera Mono typeface is used for
-\texttt{monospaced} type.
+installations, 
+% the \TL document classes default to using Palatino and Helvetica, respectively.  In addition, the Bera Mono typeface is used for \texttt{monospaced} type.
+these modified \TL document classes default to using ETbb. More specifically the fonts are loaded as follows:
+\begin{docspec}
+\textbackslash usepackage[p]\{ETbb\}\\
+\textbackslash usepackage[scaled=0.90,type1]\{cabin\}\\
+\textbackslash usepackage[varqu,varl]\{zi4\}\\
+\textbackslash usepackage[libertine,vvarbb]\{newtxmath\}
+\end{docspec}
+The fonts will look like this for \textsf{sans serif} and like this for \texttt{typewriter}.
 
 %The following font sizes are defined by the \TL classes:
 The font sizes have been made dependent on the base class font sizes, i.e. article for tufte-handout and book for tufte-book. %
@@ -456,8 +463,19 @@ The following characteristics define the various environments:
 
 
 
-\subsubsection{Test}
+\subsubsection{Mathematical Text}
 
+\textbf{Simplest form of the \textit{Central Limit Theorem}\footnote{quoted from the ETbb package documentation, where it is used as illustration in the same way.}:} \textit{Let
+$X_1$, $X_2,\cdots$ be a sequence of iid random variables with mean $0$ 
+and variance $1$ on a probability space $(\Omega,\mathcal{F},\Pr)$. Then}
+\[\Pr\left(\frac{X_1+\cdots+X_n}{\sqrt{n}}\le y\right)\to\mathfrak{N}(y)\coloneq
+\int_{-\infty}^y \frac{\mathrm{e}^{-t^2/2}}{\sqrt{2\uppi}}\,
+\mathrm{d}t\quad\mbox{as $n\to\infty$,}\]
+\textit{or, equivalently, letting} $S_n\coloneq\sum_1^n X_k$,
+\[\mathbb{E} f(S_n/\sqrt{n})\to \int_{-\infty}^\infty f(t)
+\frac{\mathrm{e}^{-t^2/2}}{\sqrt{2\uppi}}\,\mathrm{d}t
+\quad\mbox{as $n\to\infty$, for every $f\in\mathrm{b}
+\mathcal{C}(\mathbb{R})$.}\]
 
 
 
