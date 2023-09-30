@@ -445,15 +445,10 @@ are: sub-subsections and subparagraphs, but subsubsection has been enabled here.
 \paragraph{Paragraph} Paragraph headings (as shown here) are introduced by
 italicized text and separated from the main paragraph by a bit of space.
 
-\subsection{Test}
-
-\subsubsection{Test}
-
 
 \section{Environments}
 
 The following characteristics define the various environments:
-
 
 \begin{table}[h]
   \begin{center}
@@ -472,6 +467,26 @@ The following characteristics define the various environments:
   \caption{Environment styles used in \BE.}
   \label{tab:environment-styles}
 \end{table}
+
+
+\section{Analysis and Tests}
+
+\begingroup
+\makeatletter
+\newcommand{\myfontsize}{\f@size}
+\makeatother
+
+This is the current fontsize: \myfontsize{}pt
+\endgroup
+
+\subsubsection{Test}
+
+
+
+
+
+
+
 
 
 \chapter[On the Use of the tufte-book Document Class]{On the Use of the \texttt{tufte-book} Document Class}
