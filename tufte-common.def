@@ -120,6 +120,12 @@
 \DeclareOptionX[tufte]<common>{hyper}{\setboolean{@tufte@loadhyper}{true}}
 \DeclareOptionX[tufte]<common>{nohyper}{\setboolean{@tufte@loadhyper}{false}}
 
+
+%%
+% Document font size options, added by flbo
+
+\newcommand*{\@tufte@class@fontsize}{10pt}
+
 %%
 % `sidenote', `marginnote', `caption', `citation', `marginals' options
 % Each allows one of {justified,raggedleft,raggedright,raggedouter,auto}.
@@ -461,7 +467,7 @@
 %%
 % Separation marginpars by a line's worth of space.
 
-\setlength\marginparpush{10pt}
+\setlength\marginparpush{\@tufte@class@fontsize}
 
 %%
 % Font for margin items
