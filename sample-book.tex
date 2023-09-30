@@ -388,31 +388,14 @@ installations, the \TL document classes default to using Palatino and
 Helvetica, respectively.  In addition, the Bera Mono typeface is used for
 \texttt{monospaced} type.
 
-The following font sizes are defined by the \TL classes:
-
-\begin{table}[h]\index{typefaces!sizes}
-  \footnotesize%
-  \begin{center}
-    \begin{tabular}{lccl}
-      \toprule
-      \LaTeX{} size & Font size & Leading & Used for \\
-      \midrule
-      \verb+\tiny+         &  5 &  6 & sidenote numbers \\
-      \verb+\scriptsize+   &  7 &  8 & \na \\
-      \verb+\footnotesize+ &  8 & 10 & sidenotes, captions \\
-      \verb+\small+        &  9 & 12 & quote, quotation, and verse environments \\
-      \verb+\normalsize+   & 10 & 14 & body text \\
-      \verb+\large+        & 11 & 15 & \textsc{b}-heads \\
-      \verb+\Large+        & 12 & 16 & \textsc{a}-heads, \textsc{toc} entries, author, date \\
-      \verb+\LARGE+        & 14 & 18 & handout title \\
-      \verb+\huge+         & 20 & 30 & chapter heads \\
-      \verb+\Huge+         & 24 & 36 & part titles \\
-      \bottomrule
-    \end{tabular}
-  \end{center}
-  \caption{A list of \LaTeX{} font sizes as defined by the \TL document classes.}
-  \label{tab:font-sizes}
-\end{table}
+%The following font sizes are defined by the \TL classes:
+The font sizes have been made dependent on the base class font sizes, i.e. article for tufte-handout and book for tufte-book. %
+\begingroup%
+\makeatletter%
+\newcommand{\myfontsize}{\f@size}%
+\makeatother%
+This line here was typeset at a font size of~\myfontsize{}pt.
+\endgroup
 
 \section{Headings}\label{sec:headings1}\index{headings}
 
@@ -471,15 +454,7 @@ The following characteristics define the various environments:
 
 \section{Analysis and Tests}
 
-\begingroup
-\makeatletter
-\newcommand{\myfontsize}{\f@size}
 
-\@tufte@class@fontsize
-\makeatother
-
-This is the current fontsize: \myfontsize{}pt
-\endgroup
 
 \subsubsection{Test}
 
