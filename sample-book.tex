@@ -1,4 +1,4 @@
-\documentclass{tufte-book}
+\documentclass[12pt,a4paper]{tufte-book}
 
 \hypersetup{colorlinks}% uncomment this line if you prefer colored hyperlinks (e.g., for onscreen viewing)
 
@@ -388,38 +388,22 @@ installations, the \TL document classes default to using Palatino and
 Helvetica, respectively.  In addition, the Bera Mono typeface is used for
 \texttt{monospaced} type.
 
-The following font sizes are defined by the \TL classes:
-
-\begin{table}[h]\index{typefaces!sizes}
-  \footnotesize%
-  \begin{center}
-    \begin{tabular}{lccl}
-      \toprule
-      \LaTeX{} size & Font size & Leading & Used for \\
-      \midrule
-      \verb+\tiny+         &  5 &  6 & sidenote numbers \\
-      \verb+\scriptsize+   &  7 &  8 & \na \\
-      \verb+\footnotesize+ &  8 & 10 & sidenotes, captions \\
-      \verb+\small+        &  9 & 12 & quote, quotation, and verse environments \\
-      \verb+\normalsize+   & 10 & 14 & body text \\
-      \verb+\large+        & 11 & 15 & \textsc{b}-heads \\
-      \verb+\Large+        & 12 & 16 & \textsc{a}-heads, \textsc{toc} entries, author, date \\
-      \verb+\LARGE+        & 14 & 18 & handout title \\
-      \verb+\huge+         & 20 & 30 & chapter heads \\
-      \verb+\Huge+         & 24 & 36 & part titles \\
-      \bottomrule
-    \end{tabular}
-  \end{center}
-  \caption{A list of \LaTeX{} font sizes as defined by the \TL document classes.}
-  \label{tab:font-sizes}
-\end{table}
+%The following font sizes are defined by the \TL classes:
+The font sizes have been made dependent on the base class font sizes, i.e. article for tufte-handout and book for tufte-book. %
+\begingroup%
+\makeatletter%
+\newcommand{\myfontsize}{\f@size}%
+\makeatother%
+This line here was typeset at a font size of~\myfontsize{}pt.
+\endgroup
 
 \section{Headings}\label{sec:headings1}\index{headings}
 
 Tufte's books include the following heading levels: parts,
-chapters,\sidenote{Parts and chapters are defined for the \texttt{tufte-book}
-class only.}  sections, subsections, and paragraphs.  Not defined by default
-are: sub-subsections and subparagraphs.
+chapters\sidenote{Parts and chapters are defined for the \texttt{tufte-book}% end texttt
+class only.}, % end sidenote.
+sections, subsections, and paragraphs.  Not defined by default
+are: sub-subsections and subparagraphs, but subsubsection has been enabled here.
 
 \begin{table}[h]
   \begin{center}
@@ -432,6 +416,7 @@ are: sub-subsections and subparagraphs.
       Chapter & italic & \measure{20}{30}{40} \\
       Section & italic & \measure{12}{16}{26} \\
       Subsection & italic & \measure{11}{15}{26} \\
+      Subsubsection & italic & \measure{11}{15}{26} \\
       Paragraph & italic & 10/14 \\
       \bottomrule
     \end{tabular}
@@ -443,10 +428,10 @@ are: sub-subsections and subparagraphs.
 \paragraph{Paragraph} Paragraph headings (as shown here) are introduced by
 italicized text and separated from the main paragraph by a bit of space.
 
+
 \section{Environments}
 
 The following characteristics define the various environments:
-
 
 \begin{table}[h]
   \begin{center}
@@ -465,6 +450,20 @@ The following characteristics define the various environments:
   \caption{Environment styles used in \BE.}
   \label{tab:environment-styles}
 \end{table}
+
+
+\section{Analysis and Tests}
+
+
+
+\subsubsection{Test}
+
+
+
+
+
+
+
 
 
 \chapter[On the Use of the tufte-book Document Class]{On the Use of the \texttt{tufte-book} Document Class}

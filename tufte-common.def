@@ -120,6 +120,15 @@
 \DeclareOptionX[tufte]<common>{hyper}{\setboolean{@tufte@loadhyper}{true}}
 \DeclareOptionX[tufte]<common>{nohyper}{\setboolean{@tufte@loadhyper}{false}}
 
+
+%%
+% Document font size options, added by flbo
+
+\newcommand*{\@tufte@class@fontsize}{10pt}%default.
+\DeclareOptionX[tufte]<common>{10pt}{}% see default
+\DeclareOptionX[tufte]<common>{11pt}{\renewcommand*{\@tufte@class@fontsize}{11pt}}%
+\DeclareOptionX[tufte]<common>{12pt}{\renewcommand*{\@tufte@class@fontsize}{12pt}}%
+
 %%
 % `sidenote', `marginnote', `caption', `citation', `marginals' options
 % Each allows one of {justified,raggedleft,raggedright,raggedouter,auto}.
@@ -220,9 +229,10 @@
 
 \newcommand{\@tufte@unsupported@option}[1]{\@tufte@warning@noline{Option `#1' is not supported -- ignoring option}\OptionNotUsed}
 
-\DeclareOptionX[tufte]<common>{10pt}{\@tufte@unsupported@option{\CurrentOption}}
-\DeclareOptionX[tufte]<common>{11pt}{\@tufte@unsupported@option{\CurrentOption}}
-\DeclareOptionX[tufte]<common>{12pt}{\@tufte@unsupported@option{\CurrentOption}}
+%\DeclareOptionX[tufte]<common>{10pt}{\@tufte@unsupported@option{\CurrentOption}}
+%\DeclareOptionX[tufte]<common>{11pt}{\@tufte@unsupported@option{\CurrentOption}}
+%\DeclareOptionX[tufte]<common>{12pt}{\@tufte@unsupported@option{\CurrentOption}}
+% see the \@tufte@class@fontsize for these options.
 \DeclareOptionX[tufte]<common>{a5paper}{\@tufte@unsupported@option{\CurrentOption}}
 \DeclareOptionX[tufte]<common>{executivepaper}{\@tufte@unsupported@option{\CurrentOption}}
 \DeclareOptionX[tufte]<common>{legalpaper}{\@tufte@unsupported@option{\CurrentOption}}
@@ -247,7 +257,7 @@
 %%
 % Load the appropriate base class
 \@tufte@info@noline{Loading the base class `\@tufte@class'}
-\LoadClass{\@tufte@class}
+\LoadClass[\@tufte@class@fontsize]{\@tufte@class}
 
 %%
 % Detect whether we're in two-side mode or not.  (Used to set up running
@@ -365,44 +375,45 @@
 
 %%
 % Set the font sizes and baselines to match Tufte's books
-\renewcommand\normalsize{%
-   \@setfontsize\normalsize\@xpt{14}%
-   \abovedisplayskip 10\p@ \@plus2\p@ \@minus5\p@
-   \abovedisplayshortskip \z@ \@plus3\p@
-   \belowdisplayshortskip 6\p@ \@plus3\p@ \@minus3\p@
-   \belowdisplayskip \abovedisplayskip
-   \let\@listi\@listI}
-\normalbaselineskip=14pt
-\normalsize
-\renewcommand\small{%
-   \@setfontsize\small\@ixpt{12}%
-   \abovedisplayskip 8.5\p@ \@plus3\p@ \@minus4\p@
-   \abovedisplayshortskip \z@ \@plus2\p@
-   \belowdisplayshortskip 4\p@ \@plus2\p@ \@minus2\p@
-   \def\@listi{\leftmargin\leftmargini
-               \topsep 4\p@ \@plus2\p@ \@minus2\p@
-               \parsep 2\p@ \@plus\p@ \@minus\p@
-               \itemsep \parsep}%
-   \belowdisplayskip \abovedisplayskip
-}
-\renewcommand\footnotesize{%
-   \@setfontsize\footnotesize\@viiipt{10}%
-   \abovedisplayskip 6\p@ \@plus2\p@ \@minus4\p@
-   \abovedisplayshortskip \z@ \@plus\p@
-   \belowdisplayshortskip 3\p@ \@plus\p@ \@minus2\p@
-   \def\@listi{\leftmargin\leftmargini
-               \topsep 3\p@ \@plus\p@ \@minus\p@
-               \parsep 2\p@ \@plus\p@ \@minus\p@
-               \itemsep \parsep}%
-   \belowdisplayskip \abovedisplayskip
-}
-\renewcommand\scriptsize{\@setfontsize\scriptsize\@viipt\@viiipt}
-\renewcommand\tiny{\@setfontsize\tiny\@vpt\@vipt}
-\renewcommand\large{\@setfontsize\large\@xipt{15}}
-\renewcommand\Large{\@setfontsize\Large\@xiipt{16}}
-\renewcommand\LARGE{\@setfontsize\LARGE\@xivpt{18}}
-\renewcommand\huge{\@setfontsize\huge\@xxpt{30}}
-\renewcommand\Huge{\@setfontsize\Huge{24}{36}}
+% commented out, use the option \@tufte@class@fontsize instead
+%\renewcommand\normalsize{%
+%   \@setfontsize\normalsize\@xpt{14}%
+%   \abovedisplayskip 10\p@ \@plus2\p@ \@minus5\p@
+%   \abovedisplayshortskip \z@ \@plus3\p@
+%   \belowdisplayshortskip 6\p@ \@plus3\p@ \@minus3\p@
+%   \belowdisplayskip \abovedisplayskip
+%   \let\@listi\@listI}
+%\normalbaselineskip=14pt
+%\normalsize
+%\renewcommand\small{%
+%   \@setfontsize\small\@ixpt{12}%
+%   \abovedisplayskip 8.5\p@ \@plus3\p@ \@minus4\p@
+%   \abovedisplayshortskip \z@ \@plus2\p@
+%   \belowdisplayshortskip 4\p@ \@plus2\p@ \@minus2\p@
+%   \def\@listi{\leftmargin\leftmargini
+%               \topsep 4\p@ \@plus2\p@ \@minus2\p@
+%               \parsep 2\p@ \@plus\p@ \@minus\p@
+%               \itemsep \parsep}%
+%   \belowdisplayskip \abovedisplayskip
+%}
+%\renewcommand\footnotesize{%
+%   \@setfontsize\footnotesize\@viiipt{10}%
+%   \abovedisplayskip 6\p@ \@plus2\p@ \@minus4\p@
+%   \abovedisplayshortskip \z@ \@plus\p@
+%   \belowdisplayshortskip 3\p@ \@plus\p@ \@minus2\p@
+%   \def\@listi{\leftmargin\leftmargini
+%               \topsep 3\p@ \@plus\p@ \@minus\p@
+%               \parsep 2\p@ \@plus\p@ \@minus\p@
+%               \itemsep \parsep}%
+%   \belowdisplayskip \abovedisplayskip
+%}
+%\renewcommand\scriptsize{\@setfontsize\scriptsize\@viipt\@viiipt}
+%\renewcommand\tiny{\@setfontsize\tiny\@vpt\@vipt}
+%\renewcommand\large{\@setfontsize\large\@xipt{15}}
+%\renewcommand\Large{\@setfontsize\Large\@xiipt{16}}
+%\renewcommand\LARGE{\@setfontsize\LARGE\@xivpt{18}}
+%\renewcommand\huge{\@setfontsize\huge\@xxpt{30}}
+%\renewcommand\Huge{\@setfontsize\Huge{24}{36}}
 
 \setlength\leftmargini   {1pc}
 \setlength\leftmarginii  {1pc}
@@ -461,7 +472,7 @@
 %%
 % Separation marginpars by a line's worth of space.
 
-\setlength\marginparpush{10pt}
+\setlength\marginparpush{\@tufte@class@fontsize}
 
 %%
 % Font for margin items
@@ -1633,6 +1644,14 @@
   {1em}% horizontal separation between label and title body
   {}% before the title body
   []% after the title body
+  
+\titleformat{\subsubsection}%
+  [hang]% shape
+  {\normalfont\large\itshape}% format applied to label+text
+  {\thesubsection}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
 
 \titleformat{\paragraph}%
   [runin]% shape
@@ -1648,15 +1667,16 @@
 
 % Subsubsection and following section headings shouldn't be used.
 % See Bringhurst's _The Elements of Typography_, section 4.2.2.
-\renewcommand\subsubsection{%
-  \@tufte@error{\string\subsubsection is undefined by this class.
-    See Robert Bringhurst's _The Elements of 
-    Typographic Style_, section 4.2.2.
-    \string\subsubsection was used}
-    {From Bringhurst's _The Elements of Typographic Style_, section 4.2.2: Use as 
-    many levels of headings as you need, no more and no fewer.  Also see the many 
-    related threads on Ask E.T. at http://www.edwardtufte.com/.}
-}
+%\renewcommand\subsubsection{%
+%  \@tufte@error{\string\subsubsection is undefined by this class.
+%    See Robert Bringhurst's _The Elements of 
+%    Typographic Style_, section 4.2.2.
+%    \string\subsubsection was used}
+%    {From Bringhurst's _The Elements of Typographic Style_, section 4.2.2: Use as 
+%    many levels of headings as you need, no more and no fewer.  Also see the many 
+%    related threads on Ask E.T. at http://www.edwardtufte.com/.}
+%}% commented out, flbo
+
 
 \renewcommand\subparagraph{%
   \@tufte@error{\string\subparagraph is undefined by this class.%
