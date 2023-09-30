@@ -1,4 +1,4 @@
-\documentclass{tufte-book}
+\documentclass[12pt,a4paper]{tufte-book}
 
 \hypersetup{colorlinks}% uncomment this line if you prefer colored hyperlinks (e.g., for onscreen viewing)
 
@@ -474,6 +474,8 @@ The following characteristics define the various environments:
 \begingroup
 \makeatletter
 \newcommand{\myfontsize}{\f@size}
+
+\@tufte@class@fontsize
 \makeatother
 
 This is the current fontsize: \myfontsize{}pt
