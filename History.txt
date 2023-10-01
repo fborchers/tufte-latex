@@ -1,5 +1,5 @@
 
-=== 0.0.2 - 2023/10/01
+=== 0.0.2 - 2023/10/01 ===
 
   * added options 10pt, 11pt and 12pt, this also removed the font size redefinitions from tufte-latex
   * switched the default fonts from Palatino and Helvetica to ETbb
