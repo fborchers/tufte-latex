@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{tufte-book}
+\documentclass[11pt]{tufte-book}
 
 \hypersetup{colorlinks}% uncomment this line if you prefer colored hyperlinks (e.g., for onscreen viewing)
 
@@ -48,6 +48,10 @@
 %%
 % Prints a trailing space in a smart way.
 \usepackage{xspace}
+
+%%
+% Set the linespacing from setspace package:
+\setstretch{1.1}
 
 %%
 % Some shortcuts for Tufte's book titles.  The lowercase commands will
@@ -376,7 +380,7 @@ contain chapters---they're not broken into parts.
 \end{figure*}
 
 
-\section{Typefaces}\label{sec:typefaces1}\index{typefaces}
+\section{Typefaces (Modified)}\label{sec:typefaces1}\index{typefaces}
 \index{fonts|see{typefaces}}
 
 Tufte's books primarily use two typefaces: Bembo and Gill Sans.  Bembo is used
@@ -403,6 +407,11 @@ The font sizes have been made dependent on the base class font sizes, i.e. artic
 \makeatother%
 This line here was typeset at a font size of~\myfontsize{}pt.
 \endgroup
+The line spacing of the \TL documents is controlled by the setspace package, which is loaded automatically; for this document we used in the preamble:
+\begin{docspec}
+\textbackslash setstretch\{1.1\}
+\end{docspec}
+
 
 \section{Headings}\label{sec:headings1}\index{headings}
 
@@ -833,8 +842,9 @@ document class.  Therefore, you can pass any of the typical book
 options.  There are a few options that are specific to the
 \doccls{tufte-book} document class, however.
 
-The \docclsoptdef{a4paper} option will set the paper size to \smallcaps{A4} instead of
-the default \smallcaps{US} letter size.
+The font size can be controlled with the options \docclsoptdef{10pt}, \docclsoptdef{11pt} or \docclsoptdef{12pt}. The default if no option is given will be \docclsoptdef{10pt}. The font adjustments to \docclsoptdef{10pt} done by the original \TL classes have been removed, they now lie with the font size definitions of the base class.
+
+The \docclsoptdef{a4paper} option will set the paper size to \smallcaps{A4} instead of the default \smallcaps{US} letter size.
 
 The \docclsoptdef{sfsidenotes} option will set the sidenotes and title block in a 
 \textsf{sans serif} typeface instead of the default roman.
