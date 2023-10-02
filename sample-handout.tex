@@ -1,4 +1,4 @@
-\documentclass{tufte-handout}
+\documentclass[11pt]{tufte-handout}
 
 \title{An Example of the Usage of the Tufte-Handout Style\thanks{Inspired by Edward~R. Tufte!}}
 
@@ -234,9 +234,17 @@ Lorem ipsum dolor sit amet...
 \section{Typography}\label{sec:typography}
 
 \subsection{Typefaces}\label{sec:typefaces}
-If the Palatino, \textsf{Helvetica}, and \texttt{Bera Mono} typefaces are installed, this style
-will use them automatically.  Otherwise, we'll fall back on the Computer Modern
-typefaces.
+Since neither Bembo nor Gill Sans are available in default \LaTeX{}
+installations, 
+% the \TL document classes default to using Palatino and Helvetica, respectively.  In addition, the Bera Mono typeface is used for \texttt{monospaced} type.
+these modified Tufte-\LaTeX{} document classes default to using ETbb. More specifically the fonts are loaded as follows:
+\begin{docspec}%
+\textbackslash usepackage[p]\{ETbb\}\\
+\textbackslash usepackage[scaled=0.90,type1]\{cabin\}\\
+\textbackslash usepackage[varqu,varl]\{zi4\}\\
+\textbackslash usepackage[libertine,vvarbb]\{newtxmath\}
+\end{docspec}
+The fonts will look like this for \textsf{sans serif} and like this for \texttt{typewriter}.
 
 \subsection{Letterspacing}\label{sec:letterspacing}
 This document class includes two new commands and some improvements on

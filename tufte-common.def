@@ -1416,11 +1416,19 @@
 % installed.)
 
 \ifthenelse{\boolean{@tufte@loadfonts}\AND\NOT\boolean{@tufte@xetex}\AND\NOT\boolean{@tufte@luatex}}{%
-  \IfFileExists{mathpazo.sty}{\RequirePackage[osf,sc]{mathpazo}}{}
-  \IfFileExists{helvet.sty}{\RequirePackage[scaled=0.90]{helvet}}{}
-  \IfFileExists{beramono.sty}{\RequirePackage[scaled=0.85]{beramono}}{}
-  \RequirePackage[T1]{fontenc}
-  \RequirePackage{textcomp}
+% The following five lines were suggested by the authors of tufte style class.
+%  \IfFileExists{mathpazo.sty}{\RequirePackage[osf,sc]{mathpazo}}{}
+%  \IfFileExists{helvet.sty}{\RequirePackage[scaled=0.90]{helvet}}{}
+%  \IfFileExists{beramono.sty}{\RequirePackage[scaled=0.85]{beramono}}{}
+%  \RequirePackage[T1]{fontenc}
+%  \RequirePackage{textcomp}
+%
+\IfFileExists{ETbb.sty}{\RequirePackage[p]{ETbb}}{}
+\IfFileExists{cabin.sty}{\RequirePackage[scaled=0.90,type1]{cabin}}{}
+\IfFileExists{zi4.sty}{\RequirePackage[varqu,varl]{zi4}}{}
+\IfFileExists{newtxmath.sty}{\RequirePackage[libertine,vvarbb]{newtxmath}}{}
+%\IfFileExists{mathalfa.sty}{\RequirePackage[cal=boondoxo,bb=boondox,frak=boondox]{mathalfa}}{}
+% c.f. https://ftp.unpad.ac.id/ctan/fonts/etbb/doc/ETbb-doc.pdf
 }{}
 
 

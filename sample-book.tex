@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{tufte-book}
+\documentclass[11pt]{tufte-book}
 
 \hypersetup{colorlinks}% uncomment this line if you prefer colored hyperlinks (e.g., for onscreen viewing)
 
@@ -48,6 +48,10 @@
 %%
 % Prints a trailing space in a smart way.
 \usepackage{xspace}
+
+%%
+% Set the linespacing from setspace package:
+\setstretch{1.1}
 
 %%
 % Some shortcuts for Tufte's book titles.  The lowercase commands will
@@ -376,7 +380,7 @@ contain chapters---they're not broken into parts.
 \end{figure*}
 
 
-\section{Typefaces}\label{sec:typefaces1}\index{typefaces}
+\section{Typefaces (Modified)}\label{sec:typefaces1}\index{typefaces}
 \index{fonts|see{typefaces}}
 
 Tufte's books primarily use two typefaces: Bembo and Gill Sans.  Bembo is used
@@ -384,9 +388,16 @@ for the headings and body text, while Gill Sans is used for the title page and
 opening epigraphs in \BE.
 
 Since neither Bembo nor Gill Sans are available in default \LaTeX{}
-installations, the \TL document classes default to using Palatino and
-Helvetica, respectively.  In addition, the Bera Mono typeface is used for
-\texttt{monospaced} type.
+installations, 
+% the \TL document classes default to using Palatino and Helvetica, respectively.  In addition, the Bera Mono typeface is used for \texttt{monospaced} type.
+these modified \TL document classes default to using ETbb. More specifically the fonts are loaded as follows:
+\begin{docspec}
+\textbackslash usepackage[p]\{ETbb\}\\
+\textbackslash usepackage[scaled=0.90,type1]\{cabin\}\\
+\textbackslash usepackage[varqu,varl]\{zi4\}\\
+\textbackslash usepackage[libertine,vvarbb]\{newtxmath\}
+\end{docspec}
+The fonts will look like this for \textsf{sans serif} and like this for \texttt{typewriter}.
 
 %The following font sizes are defined by the \TL classes:
 The font sizes have been made dependent on the base class font sizes, i.e. article for tufte-handout and book for tufte-book. %
@@ -396,6 +407,11 @@ The font sizes have been made dependent on the base class font sizes, i.e. artic
 \makeatother%
 This line here was typeset at a font size of~\myfontsize{}pt.
 \endgroup
+The line spacing of the \TL documents is controlled by the setspace package, which is loaded automatically; for this document we used in the preamble:
+\begin{docspec}
+\textbackslash setstretch\{1.1\}
+\end{docspec}
+
 
 \section{Headings}\label{sec:headings1}\index{headings}
 
@@ -456,8 +472,19 @@ The following characteristics define the various environments:
 
 
 
-\subsubsection{Test}
+\subsubsection{Mathematical Text}
 
+\textbf{Simplest form of the \textit{Central Limit Theorem}\footnote{quoted from the ETbb package documentation, where it is used as illustration in the same way.}:} \textit{Let
+$X_1$, $X_2,\cdots$ be a sequence of iid random variables with mean $0$ 
+and variance $1$ on a probability space $(\Omega,\mathcal{F},\Pr)$. Then}
+\[\Pr\left(\frac{X_1+\cdots+X_n}{\sqrt{n}}\le y\right)\to\mathfrak{N}(y)\coloneq
+\int_{-\infty}^y \frac{\mathrm{e}^{-t^2/2}}{\sqrt{2\uppi}}\,
+\mathrm{d}t\quad\mbox{as $n\to\infty$,}\]
+\textit{or, equivalently, letting} $S_n\coloneq\sum_1^n X_k$,
+\[\mathbb{E} f(S_n/\sqrt{n})\to \int_{-\infty}^\infty f(t)
+\frac{\mathrm{e}^{-t^2/2}}{\sqrt{2\uppi}}\,\mathrm{d}t
+\quad\mbox{as $n\to\infty$, for every $f\in\mathrm{b}
+\mathcal{C}(\mathbb{R})$.}\]
 
 
 
@@ -815,8 +842,9 @@ document class.  Therefore, you can pass any of the typical book
 options.  There are a few options that are specific to the
 \doccls{tufte-book} document class, however.
 
-The \docclsoptdef{a4paper} option will set the paper size to \smallcaps{A4} instead of
-the default \smallcaps{US} letter size.
+The font size can be controlled with the options \docclsoptdef{10pt}, \docclsoptdef{11pt} or \docclsoptdef{12pt}. The default if no option is given will be \docclsoptdef{10pt}. The font adjustments to \docclsoptdef{10pt} done by the original \TL classes have been removed, they now lie with the font size definitions of the base class.
+
+The \docclsoptdef{a4paper} option will set the paper size to \smallcaps{A4} instead of the default \smallcaps{US} letter size.
 
 The \docclsoptdef{sfsidenotes} option will set the sidenotes and title block in a 
 \textsf{sans serif} typeface instead of the default roman.
