@@ -714,8 +714,11 @@
   \sodef\allcapsspacing{}{0.15em}{0.65em}{0.6em}%
   \sodef\smallcapsspacing{}{0.075em}{0.5em}{0.6em}%
   \sodef\sotextsc{\scshape}{0.075em}{0.5em}{0.6em}%
+  \soulregister\MakeTextUppercase{1}%
+  \soulregister\MakeTextLowercase{1}%
+  \soulregister\scshape{1}%
   \renewcommand{\allcaps}[1]{\allcapsspacing{\MakeTextUppercase{##1}}}%
-  \renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{##1}}}%
+  \renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape{\MakeTextLowercase{##1}}}}%
   \renewcommand{\textsc}[1]{\sotextsc{##1}}%
 }
 
@@ -1473,12 +1476,20 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% The 'fancy' page style is the default style for all pages.
+% The 'fancy' page style is the default style for all pages,
+% just note that newlinetospace fails with the `soul' package.
 \fancyhf{} % clear header and footer fields
-\ifthenelse{\boolean{@tufte@twoside}}
-  {\fancyhead[LE]{\thepage\quad\smallcaps{\newlinetospace{\plainauthor}}}%
-    \fancyhead[RO]{\smallcaps{\newlinetospace{\plaintitle}}\quad\thepage}}
-  {\fancyhead[RE,RO]{\smallcaps{\newlinetospace{\plaintitle}}\quad\thepage}}
+\ifthenelse{\boolean{@tufte@pdf}}
+  {\ifthenelse{\boolean{@tufte@twoside}}
+    {\fancyhead[LE]{\thepage\quad\smallcaps{\newlinetospace{\plainauthor}}}%
+     \fancyhead[RO]{\smallcaps{\newlinetospace{\plaintitle}}\quad\thepage}}
+    {\fancyhead[RE,RO]{\smallcaps{\newlinetospace{\plaintitle}}\quad\thepage}}
+  }{
+  \ifthenelse{\boolean{@tufte@twoside}}
+    {\fancyhead[LE]{\thepage\quad\smallcaps{\plainauthor}}%
+     \fancyhead[RO]{\smallcaps{\plaintitle}\quad\thepage}}
+    {\fancyhead[RE,RO]{\smallcaps{\plaintitle}\quad\thepage}}
+}
 
 
 % The `plain' page style is used on chapter opening pages.
@@ -1563,7 +1574,7 @@
   {%
   \sffamily%
   \begin{fullwidth}%
-  \fontsize{18}{20}\selectfont\par\noindent\textcolor{darkgray}{\allcaps{\thanklessauthor}}%
+  \fontsize{18}{20}\selectfont\par\noindent\textcolor{darkgray}{\allcaps{\plainauthor}}%
   \vspace{11.5pc}%
   \fontsize{36}{40}\selectfont\par\noindent\textcolor{darkgray}{\allcaps{\thanklesstitle}}%
   \vfill%
