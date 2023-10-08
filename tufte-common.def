@@ -986,7 +986,8 @@
 \long\def\@makefntext#1{\@textsuperscript{\@tufte@sidenote@font\tiny\@thefnmark}\,\footnotelayout#1}
 
 % Set the in-text footnote mark in the same typeface as the body text itself.
-\def\@makefnmark{\hbox{\@textsuperscript{\normalfont\footnotesize\@thefnmark}}}
+%\def\@makefnmark{\hbox{\@textsuperscript{\normalfont\footnotesize\@thefnmark}}}
+\def\@makefnmark{\hbox{\@textsuperscript{\normalfont\scriptsize\@thefnmark}}}
 
 \providecommand*{\multiplefootnotemarker}{3sp}
 \providecommand*{\multfootsep}{,}
