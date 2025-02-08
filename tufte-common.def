@@ -1426,7 +1426,7 @@
 %  \RequirePackage[T1]{fontenc}
 %  \RequirePackage{textcomp}
 %
-% or (2) ETbb (problem with siunitx and prefix μ):
+% or (2) ETbb (problem with siunitx and prefix μ), maybe set line spacing to 1.1:
 %\IfFileExists{ETbb.sty}{\RequirePackage[p,osf]{ETbb}}{}% osf in text, tabular lining figures in math
 %\IfFileExists{cabin.sty}{\RequirePackage[scaled=0.90,type1]{cabin}}{}% sans serif in style of Gill Sans
 %\IfFileExists{zi4.sty}{\RequirePackage[varqu,varl]{zi4}}{}% inconsolata typewriter
@@ -1434,7 +1434,7 @@
 %\IfFileExists{mathalfa.sty}{\RequirePackage[cal=boondoxo,bb=boondox,frak=boondox]{mathalfa}}{}
 % c.f. https://ftp.unpad.ac.id/ctan/fonts/etbb/doc/ETbb-doc.pdf
 % 
-% or (3) Minion Pro (nonfree font):
+% or (3) Minion Pro (nonfree font), maybe set line spacing to 1.15:
 \RequirePackage[mathlf,minionint]{MinionPro}
 %	textlf: 	lining figures in text mode
 %	mathlf : 	lining figures in math mode
