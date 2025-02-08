@@ -1016,7 +1016,7 @@
 \renewcommand\@footnotetext[2][0pt]{%
   \marginpar{%
     \hbox{}\vspace*{#1}%
-    \def\baselinestretch {\setspace@singlespace}%
+    \def\baselinestretch{\setspace@singlespace}%
     \reset@font\footnotesize%
     \@tufte@margin@par% use parindent and parskip settings for marginal text
     \vspace*{-1\baselineskip}\noindent%
@@ -1037,7 +1037,7 @@
   \renewcommand\@footnotetext[2][0pt]{%
     \marginpar{%
       \hbox{}\vspace*{#1}%
-      \def\baselinestretch {\setspace@singlespace}%
+      \def\baselinestretch{\setspace@singlespace}%
       \if@rl@footnote\@rltrue\else\@rlfalse\fi%
       \reset@font\footnotesize%
       \@tufte@margin@par% use parindent and parskip settings for marginal text
@@ -1131,6 +1131,7 @@
     \hbox{}\vspace*{#1}%
     \@tufte@caption@justification%
     \@tufte@margin@par%
+    \def\baselinestretch {\setspace@singlespace}% ensure spacing
     \noindent%
   }
   {\end{minipage}%
