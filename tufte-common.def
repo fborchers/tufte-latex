@@ -1104,7 +1104,7 @@
     \let\cite\@tufte@infootnote@cite%   use the in-sidenote \cite command
   }{}%
   \gdef\@tufte@citations{}%           clear out any old citations
-  \marginpar{\hbox{}\vspace*{#1}\@tufte@marginnote@font\@tufte@marginnote@justification\@tufte@margin@par\vspace*{-1\baselineskip}\noindent #2}%
+  \marginpar{\hbox{}\vspace*{#1}\def\baselinestretch{\setspace@singlespace}\@tufte@marginnote@font\@tufte@marginnote@justification\@tufte@margin@par\vspace*{-1\baselineskip}\noindent #2}%
   \@tufte@print@citations%            print any citations
   \ifthenelse{\boolean{@tufte@loadnatbib}}{%
     \let\cite\@tufte@normal@cite%       go back to using normal in-text \cite command
